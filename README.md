@@ -1,3 +1,3 @@
 # vuejs-deadpixeldetector
 
-LIVE DEMO: 
+LIVE DEMO: https://vuejs-deadpixeldetector.vercel.app/
