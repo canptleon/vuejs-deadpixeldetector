@@ -16,10 +16,6 @@ pnpm-debug.log*
 dist/
 !.env.example
 
-# Vite
-.vite
-vite.config.js
-
 # Temporary files
 temp/
 .tmp/
