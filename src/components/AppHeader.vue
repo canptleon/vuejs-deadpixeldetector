@@ -1,0 +1,5 @@
+<template>
+  <header class="bg-blue-600 text-white py-4 text-center">
+    <h1 class="text-3xl font-bold">Dead Pixel Detector</h1>
+  </header>
+</template>
