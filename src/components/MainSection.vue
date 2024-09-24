@@ -11,7 +11,8 @@
       <h2 class="text-xl font-bold mt-8 mb-4">{{ $t('left-s2-header') }}</h2>
       <p>{{ $t('left-s2-p') }}</p>
     </div>
-    <div class="w-1/3 p-4 flex justify-center items-center">
+    <div class="w-1/3 p-4 flex flex-col justify-center items-center">
+      <AppExamples class="mb-8" />
       <button @click="$emit('start-test')" class="px-6 py-3 bg-blue-500 text-xl text-white rounded hover:bg-blue-600">
         {{ $t('start') }}
       </button>
@@ -28,3 +29,7 @@
     </div>
   </main>
 </template>
+
+<script setup>
+  import AppExamples from './AppExamples.vue';
+</script>
