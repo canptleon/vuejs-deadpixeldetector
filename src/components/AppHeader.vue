@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold">{{ $t('header-title') }}</h1>
       <div class="relative inline-block text-left">
         <div @click="toggleDropdown" class="cursor-pointer flex items-center">
-          <img :src="currentLanguage === 'en' ? '/en32.png' : '/tr32.png'" class="w-6 h-6" alt="Flag" />
+          <img :src="currentLanguage == 'en' ? '/en32.png' : '/tr32.png'" class="w-6 h-6" alt="Flag" />
           <span class="ml-2">{{ currentLanguage.toUpperCase() }}</span>
         </div>
         <div
@@ -32,12 +32,15 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
-const currentLanguage = ref('tr');
+const { locale } = useI18n();
+const currentLanguage = ref(locale.value || 'tr');
 const dropdownOpen = ref(false);
 
 const changeLanguage = (lang) => {
+  locale.value = lang;
   currentLanguage.value = lang;
   dropdownOpen.value = false;
 };
