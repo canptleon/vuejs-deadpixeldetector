@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   isTesting: Boolean,
@@ -32,17 +32,36 @@ const changeColor = () => {
   }
 };
 
+const requestFullscreen = async () => {
+  const fullscreenElement = document.getElementById('fullscreen');
+
+  if (fullscreenElement && !document.fullscreenElement) {
+    try {
+      await fullscreenElement.requestFullscreen();
+    } catch (error) {
+      console.error('Fullscreen request failed:', error);
+    }
+  }
+};
+
 onMounted(() => {
   const fullscreenElement = document.getElementById('fullscreen');
 
-  fullscreenElement.addEventListener('click', async () => {
-    if (!document.fullscreenElement) {
-      await fullscreenElement.requestFullscreen();
-    }
+  const startFullscreen = async () => {
+    await requestFullscreen();
     fullscreenElement.style.backgroundColor = colors[currentColorIndex.value];
-    window.addEventListener('keydown', changeColor);
-    fullscreenElement.addEventListener('click', changeColor);
-  });
+  };
+
+  fullscreenElement.addEventListener('click', startFullscreen);
+  fullscreenElement.addEventListener('touchend', startFullscreen);
+
+  window.addEventListener('keydown', changeColor);
+  fullscreenElement.addEventListener('click', changeColor);
+  fullscreenElement.addEventListener('touchend', changeColor);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', changeColor);
 });
 </script>
 
