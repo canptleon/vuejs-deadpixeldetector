@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "GomePixel";
+  src: url("/src/assets/GomePixel.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "GomePixel2";
+  src: url("/src/assets/GomePixel.otf") format("truetype");
+}
+
+body {
+  background: url(/public/background-2.png);
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  body{
+    background: url(/public/background-m.png);
+    background-size: cover;
+  }
+}

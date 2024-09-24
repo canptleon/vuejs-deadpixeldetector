@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col mx-auto">
     <AppHeader />
     <MainSection @start-test="startTest" />
     <FullScreenTest v-if="testing" :isTesting="testing" :onEndTest="endTest" />

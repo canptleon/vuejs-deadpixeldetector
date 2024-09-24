@@ -1,5 +1,5 @@
 {
-  "footer": "Uygulamayı geliştiren",
+  "footer": "Geliştiren",
   "header-title": "Ölü Pixel Saptayıcı",
   "start": "Testi Başlat",
   "left-s1-header": "Bu testi neden yapmalısınız?",
@@ -8,7 +8,7 @@
   "left-s1-li2": "Zamanla daha da kötüleşebilecek sorunları önceden fark edin. Ölü veya sıkışmış bir piksel, ekranın diğer bölgelerine yayılabilecek daha büyük sorunların belirtisi olabilir.",
   "left-s1-li3": "Ekranınızın kalitesi hakkında daha net bir fikir edinin. Bu test, günlük kullanım, yaratıcı işler veya oyunlar için ekranınızın sağlığını değerlendirmenize yardımcı olur.",
   "left-s2-header": "Bu testi nasıl yapmalısınız?",
-  "left-s2-p": "Basitçe -Testi Başlat- düğmesine tıklayın ve tam ekran renk geçişlerini takip edin. Her tuş vuruşu veya fare tıklaması, 10 farklı renk arasında geçiş yapacaktır.",
+  "left-s2-p": "Basitçe -Testi Başlat- düğmesine tıklayın ve tam ekran renk geçişlerini takip edin. Her fare tıklaması ile on farklı renk arasında geçiş yapacaktır.",
   "right-s1-header": "Ölü piksel bulursanız ne yapmalısınız?",
   "right-s1-p": "Ekranınızda bir ölü piksel bulursanız endişelenmeyin. Sorunu çözmek ve daha fazla problem yaşamamak için şu adımları izleyin:",
   "right-s1-li1": "Ölü piksellerin garanti kapsamında olup olmadığını görmek için cihazınızın garantisini kontrol edin. Bazı üreticiler, belirli bir sayıda ölü piksel olması durumunda cihazınızı değiştirebilir veya onarabilir.",

@@ -6,11 +6,11 @@ import en from './locales/en.json';
 import './assets/tailwind.css';
 
 const i18n = createI18n({
-  locale: 'tr',
-  fallbackLocale: 'tr',
+  locale: 'en',
+  fallbackLocale: 'en',
   messages: {
-    tr,
-    en
+    en,
+    tr
   }
 });
 

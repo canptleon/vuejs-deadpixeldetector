@@ -1,5 +1,5 @@
 {
-  "footer": "Developer by",
+  "footer": "Developed by",
   "header-title": "Dead Pixel Detector",
   "start": "Start Test",
   "left-s1-header": "Why should you do this test?",
@@ -8,7 +8,7 @@
   "left-s1-li2": "Spot issues that could worsen over time if not addressed. A dead or stuck pixel can indicate underlying screen problems, which might spread to other areas of the display.",
   "left-s1-li3": "Get a clearer understanding of your screen’s quality. This test helps you evaluate the health of your display, ensuring a seamless experience for everyday tasks, creative work, or gaming.",
   "left-s2-header": "How to do this test?",
-  "left-s2-p": "Simply click the -Start Test- button and follow the fullscreen color transitions. Each keypress or mouse click will cycle through 10 different colors.",
+  "left-s2-p": "Simply click the -Start Test- button and follow the fullscreen color transitions. Each mouse click will cycle through ten different colors.",
   "right-s1-header": "What if you find a dead pixel?",
   "right-s1-p": "If you find a dead pixel on your screen, don't panic. Follow these steps to handle the issue and prevent further problems:",
   "right-s1-li1": "Check your device's warranty to see if dead pixels are covered. Some manufacturers may replace your device if a certain number of pixels are dead or malfunctioning.",
