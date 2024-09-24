@@ -31,13 +31,12 @@
   </header>
 </template>
 
-
 <script setup>
 import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
 const { locale } = useI18n();
-const currentLanguage = ref(locale.value);
+const currentLanguage = ref(locale.value || 'tr');
 const dropdownOpen = ref(false);
 
 const changeLanguage = (lang) => {
