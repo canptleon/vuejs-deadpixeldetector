@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold">{{ $t('header-title') }}</h1>
       <div class="relative inline-block text-left">
         <div @click="toggleDropdown" class="cursor-pointer flex items-center">
-          <img :src="currentLanguage === 'en' ? '/src/assets/en32.png' : '/src/assets/tr32.png'" class="w-6 h-6" alt="Flag" />
+          <img :src="currentLanguage == 'en' ? '/src/assets/en32.png' : '/src/assets/tr32.png'" class="w-6 h-6" alt="Flag" />
           <span class="ml-2">{{ currentLanguage.toUpperCase() }}</span>
         </div>
         <div
