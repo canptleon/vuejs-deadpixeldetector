@@ -4,7 +4,7 @@
       <h1 class="text-3xl font-bold">{{ $t('header-title') }}</h1>
       <div class="relative inline-block text-left">
         <div @click="toggleDropdown" class="cursor-pointer flex items-center">
-          <img :src="currentLanguage == 'en' ? '/src/assets/en32.png' : '/src/assets/tr32.png'" class="w-6 h-6" alt="Flag" />
+          <img :src="currentLanguage === 'en' ? '/en32.png' : '/tr32.png'" class="w-6 h-6" alt="Flag" />
           <span class="ml-2">{{ currentLanguage.toUpperCase() }}</span>
         </div>
         <div
@@ -15,14 +15,14 @@
             @click="changeLanguage('en')"
             class="w-full text-left px-4 py-2 text-sm hover:bg-gray-200 flex items-center"
           >
-            <img src="/src/assets/en32.png" class="w-6 h-6 mr-2" alt="English Flag" />
+            <img src="/en32.png" class="w-6 h-6 mr-2" alt="English Flag" />
             EN
           </button>
           <button
             @click="changeLanguage('tr')"
             class="w-full text-left px-4 py-2 text-sm hover:bg-gray-200 flex items-center"
           >
-            <img src="/src/assets/tr32.png" class="w-6 h-6 mr-2" alt="Turkish Flag" />
+            <img src="/tr32.png" class="w-6 h-6 mr-2" alt="Turkish Flag" />
             TR
           </button>
         </div>
@@ -32,15 +32,12 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
-const { locale } = useI18n();
-const currentLanguage = ref(locale.value || 'tr');
+const currentLanguage = ref('tr');
 const dropdownOpen = ref(false);
 
 const changeLanguage = (lang) => {
-  locale.value = lang;
   currentLanguage.value = lang;
   dropdownOpen.value = false;
 };
