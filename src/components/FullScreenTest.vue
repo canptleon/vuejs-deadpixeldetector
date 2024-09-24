@@ -1,9 +1,13 @@
 <template>
-  <div id="fullscreen" class="fixed inset-0 bg-black"></div>
+  <div
+    id="fullscreen"
+    class="fixed inset-0 w-full h-full bg-black flex justify-center items-center"
+  ></div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { getNativeWebDevice } from '../utils/deviceUtils';
 
 const props = defineProps({
   isTesting: Boolean,
@@ -13,6 +17,8 @@ const props = defineProps({
 const colors = ['#000000', '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#808080', '#FF8000'];
 const currentColorIndex = ref(0);
 const maxColors = colors.length;
+
+const deviceType = getNativeWebDevice(navigator.userAgent);
 
 const exitFullscreen = async () => {
   if (document.fullscreenElement) {
@@ -35,29 +41,40 @@ const changeColor = () => {
 const requestFullscreen = async () => {
   const fullscreenElement = document.getElementById('fullscreen');
 
-  if (fullscreenElement && !document.fullscreenElement) {
+  if (!document.fullscreenElement) {
     try {
       await fullscreenElement.requestFullscreen();
     } catch (error) {
       console.error('Fullscreen request failed:', error);
     }
+  } else if (deviceType === 'iOS') {
+    fullscreenElement.classList.add('fullscreen-simulate');
   }
 };
 
 onMounted(() => {
   const fullscreenElement = document.getElementById('fullscreen');
 
-  const startFullscreen = async () => {
+  const startFullscreen = async (event) => {
+    event.preventDefault();
     await requestFullscreen();
     fullscreenElement.style.backgroundColor = colors[currentColorIndex.value];
   };
 
-  fullscreenElement.addEventListener('click', startFullscreen);
-  fullscreenElement.addEventListener('touchend', startFullscreen);
+  const handleTouchEnd = (event) => {
+    event.preventDefault();
+    changeColor();
+  };
+
+  if (deviceType === 'Android' || deviceType === 'Desktop') {
+    fullscreenElement.addEventListener('click', startFullscreen);
+    fullscreenElement.addEventListener('click', changeColor);
+  } else if (deviceType === 'iOS') {
+    fullscreenElement.addEventListener('touchend', startFullscreen);
+    fullscreenElement.addEventListener('touchend', handleTouchEnd);
+  }
 
   window.addEventListener('keydown', changeColor);
-  fullscreenElement.addEventListener('click', changeColor);
-  fullscreenElement.addEventListener('touchend', changeColor);
 });
 
 onUnmounted(() => {
@@ -71,5 +88,22 @@ onUnmounted(() => {
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.fullscreen-simulate {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
 </style>
