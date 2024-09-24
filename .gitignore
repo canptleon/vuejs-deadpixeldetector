@@ -31,7 +31,6 @@ temp/
 
 # Output directory
 dist/
-public/
 
 # Test coverage reports
 coverage/
